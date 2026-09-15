@@ -1,325 +1,202 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/ParallaxCloud/.github/main/assets/parallax-logo.png" width="120" alt="ParallaxCloud logo">
+<img src="https://raw.githubusercontent.com/ParallaxCloud/.github/main/assets/parallax-logo.png" width="120" alt="ParallaxCloud Logo">
 
 # ParallaxCloud
 
-### Infrastructure for secure, observable and distributed networking.
+### Инфраструктура для защищённых, управляемых и наблюдаемых сетевых систем.
 
-Building a cohesive networking ecosystem — from low-level network cores and VPN clients to orchestration, observability and infrastructure control.
+<p>
+  <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go">
+  <img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" alt="Rust">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/gRPC-0A8080?style=for-the-badge" alt="gRPC">
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis">
+</p>
 
-<br>
-
-![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![gRPC](https://img.shields.io/badge/gRPC-0A8080?style=for-the-badge)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+**ParallaxCloud** — экосистема проектов для управления VPN-инфраструктурой, разработки клиентских приложений, оркестрации сетевых узлов и построения собственного сетевого ядра.
 
 </div>
 
 ---
 
-## 🌌 About ParallaxCloud
+## 🌌 О проекте
 
-**ParallaxCloud** develops software for operating and connecting distributed network infrastructure.
+ParallaxCloud объединяет несколько направлений в одну экосистему:
 
-The ecosystem is designed around a simple idea: networking software should be **fast, observable, modular, automatable and maintainable** from the first production deployment to a large distributed fleet.
+- **управление распределённой VPN-инфраструктурой**;
+- **кроссплатформенные клиентские приложения**;
+- **безопасный control plane и телеметрию**;
+- **оркестрацию серверов и конфигураций**;
+- **разработку собственного сетевого ядра следующего поколения**.
 
-Our projects cover multiple layers of the stack:
-
-- infrastructure control planes;
-- VPN and proxy clients;
-- distributed node management;
-- network-core development;
-- telemetry and observability;
-- subscription and configuration delivery;
-- secure control-plane communication;
-- cross-platform desktop and mobile applications.
+Наша цель — создать целостную платформу, где все компоненты работают вместе: от backend-control-plane и серверных агентов до пользовательских desktop/mobile клиентов.
 
 ---
 
-## 🚀 Projects
-
-<table>
-<tr>
-<td width="50%" valign="top">
+## 🧩 Экосистема ParallaxCloud
 
 ### ⚡ Parallax Axis
+**Parallax Axis** — production-grade платформа управления распределённой VPN-инфраструктурой на базе Xray-core.
 
-Distributed VPN infrastructure control plane.
+Ключевые возможности:
+- централизованное управление серверами, инбаундами, пользователями, группами и тарифами;
+- безопасный канал `Backend ↔ Visor` через **gRPC mTLS**;
+- fleet update и orchestration удалённых узлов;
+- потоковая телеметрия, аудит, системная диагностика;
+- backend на **Go**, хранение в **PostgreSQL**, event bridge через **Redis**.
 
-Axis brings servers, users, subscriptions, fleet operations, telemetry and configuration delivery into a single operational environment.
+> Axis — это центр управления всей инфраструктурой ParallaxCloud.
 
-**Highlights**
+---
 
-- Centralized server and inbound management
-- User, group and tariff management
-- gRPC + mTLS control plane
-- Visor agents for remote VPS nodes
-- Fleet deploy / reinstall / update orchestration
-- Runtime configuration synchronization
-- Streaming telemetry and traffic statistics
-- Event-sourced fleet update journal
-- Subscription delivery for compatible clients
-- PostgreSQL + Redis backend
-- Desktop manager built with Wails + React
+### 🖥️ Parallax Client / Desktop
+**Parallax Client** — кроссплатформенный VPN-клиент для Windows и Linux.
 
-</td>
-<td width="50%" valign="top">
+Ключевые возможности:
+- два ядра на выбор: **sing-box** и **xray-core**;
+- **hot-swap** серверов без полного переподключения;
+- **smart-bypass** и маршрутизация по правилам;
+- **kill-switch**;
+- **TUN-режим**;
+- **пер-процессный UDP-фильтр** для маршрутизации отдельных приложений.
 
-### 🖥️ Parallax Client
+> Desktop-клиент — это пользовательская точка входа в экосистему Parallax.
 
-Cross-platform desktop VPN client for Windows and Linux.
+---
 
-The client is built around multiple network cores and flexible routing rather than a single fixed tunnel model.
+### 📱 Parallax Android
+**Parallax Android** — мобильный клиент экосистемы ParallaxCloud.
 
-**Highlights**
+Планируемое назначение:
+- подключение к инфраструктуре Parallax с мобильных устройств;
+- импорт подписок и конфигураций;
+- удобное управление VPN-подключением на Android;
+- единый пользовательский опыт вместе с desktop-клиентом.
 
-- sing-box and Xray-core support
-- Per-process UDP filtering
-- Smart direct / proxy routing
-- Hot-swap server switching
-- Kill switch
-- TUN mode
-- Subscription and configuration import
-- Windows and Linux support
-- Local-first logs and crash diagnostics
+> Мобильное направление находится в активной разработке.
 
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-### 📱 ParallaxVPN Android
-
-Mobile client for the Parallax ecosystem.
-
-Designed to provide a native Android entry point for Parallax-managed infrastructure and compatible network configurations.
-
-> **Status:** active development.
-
-</td>
-<td width="50%" valign="top">
+---
 
 ### ⚙️ Axion Core
+**Axion Core** — перспективное сетевое ядро ParallaxCloud, развиваемое как альтернативное направление с упором на архитектуру, модульность, расширяемость и наблюдаемость.
 
-Next-generation network core being developed as part of the Parallax ecosystem.
+Ключевые принципы:
+- чистая архитектура;
+- прямые метрики и observability-first подход;
+- модульная конфигурация и расширяемые протоколы;
+- высокий контроль над сетевым поведением и интеграцией.
 
-Axion focuses on a clean, modular architecture with first-class telemetry, explicit APIs and a design suitable for embedding into other software.
-
-**Design goals**
-
-- Modular protocol architecture
-- Direct metrics APIs instead of log parsing
-- Per-user observability and bandwidth controls
-- Accurate runtime session state
-- Extensible configuration sources
-- Importable core modules
-- High-performance networking
-- Compatibility paths with existing ecosystems
-
-> **Status:** experimental / active development.
-
-</td>
-</tr>
-</table>
+> Axion Core — это долгосрочное технологическое направление ParallaxCloud.
 
 ---
 
-## 🏗️ Ecosystem architecture
+## 🏗️ Архитектура высокого уровня
 
 ```text
-                              ParallaxCloud
+                         ParallaxCloud
 
-             ┌────────────────────┬────────────────────┐
-             │                    │                    │
-             ▼                    ▼                    ▼
-      Desktop Client       Android Client        Operator UI
-      Parallax Client      ParallaxVPN           Axis Manager
-             │                    │                    │
-             └──────────────┬─────┴──────────────┬─────┘
-                            │                    │
-                      subscriptions          gRPC / mTLS
-                            │                    │
-                            ▼                    ▼
-                   ┌──────────────────────────────────┐
-                   │        Parallax Axis             │
-                   │       Control Plane              │
-                   │                                  │
-                   │ Users • Servers • Fleet • PKI   │
-                   │ Telemetry • Audit • Delivery    │
-                   └────────────────┬─────────────────┘
-                                    │
-                              gRPC mTLS
-                                    │
-                                    ▼
-                     ┌──────────────────────────┐
-                     │      Visor Agents        │
-                     │   Distributed VPS nodes  │
-                     └─────────────┬────────────┘
-                                   │
-                                   ▼
-                     ┌──────────────────────────┐
-                     │      Network Core        │
-                     │    Xray / Axion / ...    │
-                     └──────────────────────────┘
+                ┌─────────────────────────────┐
+                │   Desktop / Mobile Clients  │
+                └──────────────┬──────────────┘
+                               │
+                   подписки / конфиги / API
+                               │
+                      ┌────────▼────────┐
+                      │  Parallax Axis  │
+                      │  Control Plane  │
+                      └────────┬────────┘
+                               │
+                           gRPC mTLS
+                               │
+             ┌─────────────────▼─────────────────┐
+             │    Удалённые VPS / Visor Agents   │
+             └─────────────────┬─────────────────┘
+                               │
+                     Xray-core / Axion Core
 ```
 
----
-
-## 🧠 Engineering principles
-
-### Security by default
-
-Control-plane communication should use authenticated and encrypted channels. Sensitive infrastructure operations are designed around explicit trust boundaries, PKI and auditability.
-
-### Observability is part of the architecture
-
-Metrics, runtime state, audit data and diagnostics should be first-class interfaces rather than information reconstructed from logs after something breaks.
-
-### Clean boundaries
-
-Core networking, orchestration, UI, persistence and delivery systems should evolve independently through versioned contracts and well-defined modules.
-
-### Automation over repetitive operations
-
-Provisioning, fleet updates, runtime synchronization, recovery and configuration delivery should be automated wherever practical.
-
-### Compatibility without architectural lock-in
-
-ParallaxCloud projects aim to interoperate with established networking ecosystems while preserving the ability to evolve their own architecture.
-
-### Performance with maintainability
-
-Low-level performance matters, but not at the cost of turning infrastructure into an unmaintainable collection of special cases.
+В экосистеме ParallaxCloud:
+- **Axis** управляет инфраструктурой;
+- **Visor-агенты** работают на удалённых узлах;
+- **Client / Android** подключают конечных пользователей;
+- **Axion Core** развивает собственное технологическое ядро для будущих сценариев.
 
 ---
 
-## 🔐 Security model
+## 🔐 Наши принципы
 
-Security-sensitive components of the ecosystem are built around explicit trust and transport boundaries.
+Мы строим проекты, опираясь на следующие принципы:
 
-Current Axis architecture includes:
-
-- mTLS for manager ↔ backend communication;
-- mTLS for backend ↔ visor agent communication;
-- automated PKI provisioning;
-- SSH host-key pinning for remote deployment workflows;
-- API version negotiation;
-- audit logging for critical operations;
-- rollback and recovery paths for fleet updates.
-
-Security work is treated as an ongoing engineering process rather than a one-time feature.
+- **Безопасность по умолчанию** — mTLS, изоляция, верифицированные каналы управления.
+- **Наблюдаемость** — телеметрия, аудит, диагностика, метрики и понятное состояние системы.
+- **Чистая архитектура** — модульность, предсказуемые зависимости, разделение ответственности.
+- **Управляемость** — единый контур администрирования и понятные процессы эксплуатации.
+- **Масштабируемость** — инфраструктура должна расти без архитектурного хаоса.
+- **Практичность** — технологии выбираются не ради моды, а ради надёжности и результата.
 
 ---
 
-## 📊 Observability
+## 🛡️ Безопасность и наблюдаемость
 
-ParallaxCloud treats observability as a core capability of infrastructure software.
+В экосистеме ParallaxCloud особое внимание уделяется:
 
-The current platform direction includes:
+- защищённым control-plane соединениям;
+- потоковой телеметрии и диагностике;
+- audit log для критичных операций;
+- безопасному деплою и обновлению удалённых узлов;
+- управлению конфигурацией и контролю жизненного цикла VPN-сервисов.
 
-- live CPU, RAM, disk and network metrics;
-- per-server traffic statistics;
-- runtime status streaming;
-- historical time-series rollups;
-- audit logs;
-- system profiling;
-- diagnostic snapshots and dumps;
-- direct metrics APIs for future network-core components.
+Наша цель — не просто «поднять VPN», а предоставить полноценную инженерную платформу для эксплуатации, масштабирования и сопровождения.
 
 ---
 
-## 🧰 Technology
+## 🧰 Технологический стек
 
-| Area | Technologies |
+| Область | Технологии |
 |---|---|
-| Backend services | Go |
-| Network-core development | Go / Rust |
-| Desktop applications | Rust / Go + React |
+| Backend / Control Plane | Go, gRPC, Protocol Buffers |
+| Хранилище | PostgreSQL, Redis |
+| Desktop | Rust / Go + React |
 | Frontend | TypeScript, React |
-| RPC & contracts | gRPC, Protocol Buffers |
-| Primary database | PostgreSQL |
-| Events / streaming | Redis |
-| Infrastructure | Docker, Linux |
-| Security | mTLS, PKI, SSH host-key pinning |
-| Existing network runtimes | Xray-core, sing-box |
+| VPN runtime | Xray-core, sing-box |
+| Оркестрация | SSH, gRPC mTLS |
+| Будущее ядро | Axion Core |
 
 ---
 
-## 🧩 Current platform components
+## 🚧 Статус
 
-### Axis control plane
+ParallaxCloud находится в активной разработке.
 
-The current Axis backend manages multiple bounded operational areas including infrastructure, identity, telemetry, subscriptions, audit, PKI and releases.
-
-### Visor agents
-
-Visor agents run on distributed VPS nodes and provide the control plane with a secure operational channel for configuration, health state, telemetry and runtime lifecycle management.
-
-### Subscription delivery
-
-Axis can generate configuration formats compatible with existing client applications and provide persistent per-user subscription endpoints.
-
-### Desktop clients
-
-Parallax desktop software targets native Windows and Linux workflows while keeping modern React-based interfaces and native networking capabilities.
+Часть репозиториев и компонентов остаётся приватной, пока стабилизируются архитектура, интерфейсы и внутренние процессы. Публичный профиль организации отражает структуру экосистемы и ключевые направления развития.
 
 ---
 
-## 🛣️ Direction
+## 📚 Основные направления
 
-ParallaxCloud is moving toward a more integrated networking platform where infrastructure, clients and the network core can share common concepts and contracts.
+На текущий момент экосистема охватывает:
 
-Key areas of active development include:
-
-- Axion Core;
-- broader client coverage;
-- richer network observability;
-- protocol and runtime extensibility;
-- safer fleet orchestration;
-- compatibility with established network-core ecosystems;
-- stronger automation around deployment and recovery.
+- **управление VPN-инфраструктурой**;
+- **desktop и mobile клиенты**;
+- **подписки и пользовательскую доставку конфигураций**;
+- **метрики, телеметрию, аудит и observability**;
+- **разработку собственного сетевого ядра**.
 
 ---
 
-## 🚧 Project status
+## 🤝 Контакты и развитие
 
-ParallaxCloud is under active development.
+ParallaxCloud развивается как единая инженерная экосистема.
 
-Some repositories are private while architecture, compatibility layers, security boundaries and public interfaces are still evolving.
-
-Public APIs, repository visibility and release policies may change as individual projects mature.
-
----
-
-## 🤝 Contributing
-
-Contribution rules depend on the individual repository.
-
-Some ParallaxCloud projects are currently proprietary or source-available rather than open source. Check the repository's `LICENSE`, `CONTRIBUTING.md` and development guidelines before submitting changes or redistributing code.
-
----
-
-## 📬 Contact
-
-For project-related communication, use the contact details published in the corresponding repository.
-
-For security-sensitive reports, avoid posting private infrastructure details in public issues.
+Если вы следите за развитием проекта, интересуетесь архитектурой распределённых сетевых систем или хотите увидеть, как строится современная VPN-платформа полного цикла — добро пожаловать.
 
 ---
 
 <div align="center">
 
-## ParallaxCloud
-
-### Build. Connect. Observe. Control.
-
-**Infrastructure for secure, observable and distributed networking.**
+### ParallaxCloud
+**Строим. Соединяем. Управляем. Наблюдаем.**
 
 </div>
