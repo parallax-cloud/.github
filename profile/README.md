@@ -2,8 +2,6 @@
 
 <img src="https://raw.githubusercontent.com/parallax-cloud/.github/main/assets/parallax-logo.png" width="100%" alt="ParallaxCloud Logo">
 
-# ParallaxCloud
-
 ### Инфраструктура для защищённых, управляемых и наблюдаемых сетевых систем.
 
 <p>
